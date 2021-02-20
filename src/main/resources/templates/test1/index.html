@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>社員一覧</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>社員一覧</h1>
+<div class="col-md-8">
+<table class="table">
+	<tr><th>ID</th><th>名前</th><th>所属部署</th><th>編集</th><th>削除</th></tr>
+	<tr th:each="list: ${UsersList}">
+		<td th:text="${list.id}"></td><td th:text="${list.name}">狩野 良平</td><td th:text="${list.department}">営業部</td><td><a th:href="'/test1/edit/' + ${list.id}"><button type="button" class="btn btn-secondary">編集</button></a></td><td><a th:href="'/test1/delete/' + ${list.id}"><button type="button" class="btn btn-danger">削除</button></a></td>
+	</tr>
+</table>
+</div>
+<button type="button" class="btn btn-primary" onclick="location.href='/test1/input'">新規登録</button>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
+</html>
